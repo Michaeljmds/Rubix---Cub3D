@@ -6,7 +6,7 @@
 /*   By: mimacdou <mimacdou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/23 17:35:02 by mimacdou          #+#    #+#             */
-/*   Updated: 2026/02/23 20:36:58 by mimacdou         ###   ########.fr       */
+/*   Updated: 2026/02/24 17:36:52 by mimacdou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -114,7 +114,7 @@
 # define BASE16 "0123456789abcdef"
 
 # ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 10
+#  define BUFFER_SIZE 1
 # endif
 
 //////////////////////////TOOLS END////////////////////////////

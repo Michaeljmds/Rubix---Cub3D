@@ -6,7 +6,7 @@
 /*   By: mimacdou <mimacdou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/23 17:11:56 by mimacdou          #+#    #+#             */
-/*   Updated: 2026/02/23 20:48:09 by mimacdou         ###   ########.fr       */
+/*   Updated: 2026/02/24 21:22:34 by mimacdou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,8 +35,17 @@
 //////////////////////////FUNCTIONS////////////////////////////
 
 void	invaild_arg(char *str);
+void	f_and_c_checks(char *map);
+void	actually_xpm_test(char *map);
 void	check_args(int ac, char **av);
 void	input_content_checks(char *map);
+void	extra_input_content_checks(char *map);
+void	input_content_extension_checks(char *map);
+
+bool	file_empty(char *file);
+bool	exists_check(char *str);
+bool	check_first_two_lines(char *texture);
+bool	texture_not_empty(char *map, int flag);
 
 ////////////////////////FUNCTIONS END//////////////////////////
 

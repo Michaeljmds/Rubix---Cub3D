@@ -1,1 +1,7 @@
-This is just to pass the File Not Empty check :)
+NO texture_testing/NORTH_TEXTURE_TEST.xpm
+SO texture_testing/SOUTH_Texture_tes.xpm
+WE texture_testing/west_texture_text.xpm
+EA texture_testing/east_texture_test.xpm
+
+F 111111111
+C 225,30,0

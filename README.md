@@ -1,1 +1,0 @@
-# Rubix---Cub3D

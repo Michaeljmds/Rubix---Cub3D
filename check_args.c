@@ -6,7 +6,7 @@
 /*   By: mimacdou <mimacdou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/23 18:30:06 by mimacdou          #+#    #+#             */
-/*   Updated: 2026/02/23 21:27:54 by mimacdou         ###   ########.fr       */
+/*   Updated: 2026/02/24 21:50:50 by mimacdou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,20 +19,22 @@ void	print_extras(int flag)
 		coloured_write("-------------------------------------\n", BHYEL, 1);
 		coloured_write("      STARTING INPUT CHECKS      \n", BHYEL, 1);
 		coloured_write("-------------------------------------\n", BHYEL, 1);
-		coloured_write("- Argument Present Check: ", BHYEL, 1);
+		coloured_write("- Argument Present Check: ", YEL, 1);
 	}
 	if (flag == 1)
 	{
 		coloured_write("-------------------------------------\n", BHGRN, 1);
-		coloured_write("        MAP PASSED ALL CHECKS     \n", BHGRN, 1);
-		coloured_write("         -BEGINING PARSING-       \n", BHGRN, 1);
+		coloured_write("        MAP PASSED ALL CHECKS     \n\n", BHGRN, 1);
+		coloured_write("         -BEGINING PARSING-       \n", BHBLU, 1);
 		coloured_write("-------------------------------------\n", BHGRN, 1);
 	}
 }
 
 void	invaild_arg(char *str)
 {
+	coloured_write("Error\n", BHRED, 2);
 	coloured_write(str, BHRED, 2);
+	write(1, "\n", 1);
 	exit(1);
 }
 
@@ -53,7 +55,7 @@ static bool	extension_check(char *str)
 	return (true);
 }
 
-static bool	exists_check(char *str)
+bool	exists_check(char *str)
 {
 	int	fd;
 
@@ -71,26 +73,23 @@ void	check_args(int ac, char **av)
 {
 	print_extras(0);
 	if (ac < 2)
-		invaild_arg("Error\nMissing arguemnts");
+		invaild_arg("Missing arguemnts");
 	coloured_write("Passed\n", BHGRN, 1);
-	coloured_write("- Multiple Argument Check: ", BHYEL, 1);
+	coloured_write("- Multiple Argument Check: ", YEL, 1);
 	if (ac > 2)
-		invaild_arg("Error\nToo many arguments");
+		invaild_arg("Too many arguments");
 	coloured_write("Passed\n", BHGRN, 1);
-	coloured_write("- Is Argument Empty: ", BHYEL, 1);
+	coloured_write("- Is Argument Empty: ", YEL, 1);
 	if (ft_strlen(av[1]) == 0)
-		invaild_arg("Error\nEmpty argument");
+		invaild_arg("Empty argument");
 	coloured_write("Passed\n", BHGRN, 1);
-	coloured_write("- Vaild Argument Extension: ", BHYEL, 1);
+	coloured_write("- Vaild Argument Extension: ", YEL, 1);
 	if (!extension_check(av[1]))
-		invaild_arg("Error\nFile has invalid extension");
+		invaild_arg("File has invalid extension");
 	coloured_write("Passed\n", BHGRN, 1);
-	coloured_write("- Does File Exist: ", BHYEL, 1);
+	coloured_write("- Does File Exist: ", YEL, 1);
 	if (!exists_check(av[1]))
-	{
-		coloured_write("Error\n", BHRED, 2);
 		invaild_arg(strerror(errno));
-	}
 	coloured_write("Passed\n", BHGRN, 1);
 	input_content_checks(av[1]);
 	print_extras(1);

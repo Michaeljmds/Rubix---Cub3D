@@ -6,7 +6,7 @@
 #    By: mimacdou <mimacdou@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/02/23 17:11:10 by mimacdou          #+#    #+#              #
-#    Updated: 2026/02/23 20:53:13 by mimacdou         ###   ########.fr        #
+#    Updated: 2026/02/24 20:10:32 by mimacdou         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,11 +16,12 @@ FLAGS = -Wall -Wextra -Werror -I./minilibx-linux
 LIBFT = Libft/libft.a
 LIBMLX = minilibx-linux/libmlx.a
 
-SRC = 						\
-		main				\
-		check_args			\
-		input_content_checks\
-		
+SRC = 								\
+		main						\
+		check_args					\
+		input_content_checks		\
+		extra_input_content_checks	\
+		ex_ex_input_content_checks	\
 
 SRCS = $(addsuffix .c, $(SRC))
 OBJS = $(addsuffix .o, $(SRC))
