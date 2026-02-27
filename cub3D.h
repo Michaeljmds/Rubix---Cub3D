@@ -6,7 +6,7 @@
 /*   By: shhidrob <shhidrob@student.42london.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/23 17:11:56 by mimacdou          #+#    #+#             */
-/*   Updated: 2026/02/27 20:51:37 by shhidrob         ###   ########.fr       */
+/*   Updated: 2026/02/27 21:13:24 by shhidrob         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,11 @@
 //////////////////////////LIBRARIES START//////////////////////
 
 # include <math.h>
-# include <errno.h>
-# include <sys/time.h>
+# include <errno.h> //only in files .c
+# include <sys/time.h> //to measure time
 # include "./Libft/libft.h"
 # include "minilibx-linux/mlx.h"
-# include "minilibx-linux/mlx_int.h"
+# include "minilibx-linux/mlx_int.h"//not sure we need to include it here bc it's for internal mlx purposes?
 # include <X11/keysym.h>
 
 //////////////////////////LIBRARIES END////////////////////////
@@ -53,11 +53,8 @@ typedef enum e_direct
 
 enum e_tex
 {
-	T_WALL = 0,
-	T_NORTH,
+	T_NORTH = 0,
 	T_SOUTH,
-	T_COLL,
-	T_FLOOR,
 	T_WEST,
 	T_EAST
 }	t_text;
@@ -97,9 +94,9 @@ typedef struct s_texture // each texture has its own image, its own buffer & its
 
 typedef	struct	s_game
 {
-	t_mlx	mlx;// for all graphic related
-	t_player	player;// player status
-	t_texture	textures[4];// NO,SO,WE,EA - orden tbc with parsing
+	t_mlx	mlx;// for all graphic related - mlx context and rendering data
+	t_player	player;// player state (position + direction)
+	t_texture	textures[4];//wall textures NO,SO,WE,EA - orden tbc with parsing - indexed by t_tex enum - floor & ceiling are not textures - they're colours(int)
 	char	**map;//parsed map, each char represents a tile e.g. map[y][x] == '1' = the wall
 	int		floor_color;//color RGB converted to an int,parsing fills it and render uses it (same for ceiling)
 	int		ceiling_color;
