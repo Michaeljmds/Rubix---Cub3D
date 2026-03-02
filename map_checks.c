@@ -6,7 +6,7 @@
 /*   By: mimacdou <mimacdou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/27 17:14:16 by mimacdou          #+#    #+#             */
-/*   Updated: 2026/03/02 16:46:05 by mimacdou         ###   ########.fr       */
+/*   Updated: 2026/03/02 22:36:36 by mimacdou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ char	**make_floodfill_matrix(int fd, char *line, char *map_file)
 	while (i <= 7)
 		(free(line), line = get_next_line(fd_two), i++);
 	store_house(tall_y);
-		i = 0;
+	i = 0;
 	while (i < tall_y)
 	{
 		matrix[i] = gnl_to_matrix(line, ft_strlen(line));
@@ -69,7 +69,8 @@ void	flood_fill_check(char *map_file)
 		(free(line), line = get_next_line(fd), i++);
 	matrix = make_floodfill_matrix(fd, line, map_file);
 	if (!flood_matrix(matrix, store_house(999)))
-		(free_matrix(matrix, store_house(999)), invaild_arg("Map isn't closed"));
+		(free_matrix(matrix, store_house(999)), \
+invaild_arg("Map isn't closed"));
 	coloured_write("Passed\n", BHGRN, 1);
 	free_matrix(matrix, store_house(999));
 }
