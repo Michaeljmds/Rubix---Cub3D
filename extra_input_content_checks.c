@@ -6,7 +6,7 @@
 /*   By: mimacdou <mimacdou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/24 19:30:30 by mimacdou          #+#    #+#             */
-/*   Updated: 2026/02/24 20:48:13 by mimacdou         ###   ########.fr       */
+/*   Updated: 2026/02/27 19:13:52 by mimacdou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ bool	texture_not_empty(char *map, int flag)
 	(free(line), line = get_next_line(fd));
 	if (flag == 1)
 		if (file_empty(line + 3))
-			return (free(line), close(fd),true);
+			return (free(line), close(fd), true);
 	(free(line), line = get_next_line(fd));
 	if (flag == 2)
 		if (file_empty(line + 3))
@@ -113,15 +113,18 @@ void	actually_xpm_test(char *map)
 	coloured_write("- NO actually xpm: ", YEL, 1);
 	if (!check_first_two_lines(line + 3))
 		(free(line), invaild_arg("NO texture is a false xpm file"));
-	(coloured_write("Passed\n", BHGRN, 1), free(line), line = get_next_line(fd));
+	(coloured_write("Passed\n", BHGRN, 1), free(line), \
+line = get_next_line(fd));
 	coloured_write("- SO actually xpm: ", YEL, 1);
 	if (!check_first_two_lines(line + 3))
 		(free(line), invaild_arg("SO texture is a false xpm file"));
-	(coloured_write("Passed\n", BHGRN, 1), free(line), line = get_next_line(fd));
+	(coloured_write("Passed\n", BHGRN, 1), free(line), \
+line = get_next_line(fd));
 	coloured_write("- WE actually xpm: ", YEL, 1);
 	if (!check_first_two_lines(line + 3))
 		(free(line), invaild_arg("WE texture is a false xpm file"));
-	(coloured_write("Passed\n", BHGRN, 1), free(line), line = get_next_line(fd));
+	(coloured_write("Passed\n", BHGRN, 1), free(line), \
+line = get_next_line(fd));
 	coloured_write("- EA actually xpm: ", YEL, 1);
 	if (!check_first_two_lines(line + 3))
 		(free(line), invaild_arg("EA texture is a false xpm file"));

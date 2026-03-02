@@ -6,11 +6,19 @@
 /*   By: mimacdou <mimacdou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/24 20:10:02 by mimacdou          #+#    #+#             */
-/*   Updated: 2026/02/24 22:21:05 by mimacdou         ###   ########.fr       */
+/*   Updated: 2026/02/27 18:56:43 by mimacdou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3D.h"
+
+void	invaild_rgb(int fd, char *line, int flag)
+{
+	if (flag == 0)
+		(close(fd), free(line), invaild_arg("Floor RGB invalid"));
+	else
+		(close(fd), free(line), invaild_arg("Ceiling RGB invalid"));
+}
 
 bool	check_first_two_lines(char *texture)
 {
@@ -19,10 +27,10 @@ bool	check_first_two_lines(char *texture)
 
 	fd = open(texture, O_RDWR);
 	line = get_next_line(fd);
-	if (ft_strncmp(line, "/* XPM */", 10) != 0)
+	if (!line || ft_strncmp(line, "/* XPM */", 10) != 0)
 		return (free(line), close(fd), false);
 	(free(line), line = get_next_line(fd));
-	if (ft_strncmp(line, "static char *dummy[]={", 23) != 0)
+	if (!line || ft_strncmp(line, "static char *dummy[]={", 23) != 0)
 		return (free(line), close(fd), false);
 	return (free(line), close(fd), true);
 }
@@ -44,12 +52,15 @@ static void	num_of_digits_check(int fd, char *line, int flag)
 		if (ft_isdigit(line[i]) == 1)
 			num++;
 	if (num > 9 || num < 3)
-	{
-		if (flag == 0)
-			(close(fd), free(line), invaild_arg("Floor RGB invalid"));
-		else
-			(close(fd), free(line), invaild_arg("Ceiling RGB invalid"));
-	}
+		invaild_rgb(fd, line, flag);
+	i = 0;
+	num = 0;
+	while (i++ < len)
+		if (line[i] == ',')
+			num++;
+	if (num != 2)
+		invaild_rgb(fd, line, flag);
+	additional_rgb_checks(fd, line, flag);
 	coloured_write("Passed\n", BHGRN, 1);
 }
 
@@ -64,7 +75,7 @@ static void	c_f_rgb_checks(int fd, char *line, int flag)
 		coloured_write("Passed\n", BHGRN, 1);
 		num_of_digits_check(fd, line, flag);
 	}
-	else // <-------continue here
+	else
 	{
 		coloured_write("- Ceiling RGB present: ", YEL, 1);
 		if (ft_strlen(line) == 1 || ft_strlen(line) == 2)
@@ -87,13 +98,13 @@ void	f_and_c_checks(char *map)
 	while (i++ != 5)
 		(free(line), line = get_next_line(fd));
 	coloured_write("- Floor identifier present: ", YEL, 1);
-	if (line[0] != 'F')
+	if (!line || line[0] != 'F')
 		invaild_arg("Floor identifier missing");
 	coloured_write("Passed\n", BHGRN, 1);
 	c_f_rgb_checks(fd, line, 0);
 	(free(line), line = get_next_line(fd));
 	coloured_write("- Ceiling identifier present: ", YEL, 1);
-	if (line[0] != 'C')
+	if (!line || line[0] != 'C')
 		invaild_arg("Ceiling identifier missing");
 	coloured_write("Passed\n", BHGRN, 1);
 	c_f_rgb_checks(fd, line, 1);

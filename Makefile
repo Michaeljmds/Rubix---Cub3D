@@ -6,7 +6,7 @@
 #    By: mimacdou <mimacdou@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/02/23 17:11:10 by mimacdou          #+#    #+#              #
-#    Updated: 2026/02/24 20:10:32 by mimacdou         ###   ########.fr        #
+#    Updated: 2026/03/02 22:24:41 by mimacdou         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,6 +22,10 @@ SRC = 								\
 		input_content_checks		\
 		extra_input_content_checks	\
 		ex_ex_input_content_checks	\
+		additional_rgb_checks		\
+		map_checks					\
+		extra_map_checks			\
+		janitor						\
 
 SRCS = $(addsuffix .c, $(SRC))
 OBJS = $(addsuffix .o, $(SRC))

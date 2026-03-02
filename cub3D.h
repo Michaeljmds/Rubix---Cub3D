@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3D.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: shhidrob <shhidrob@student.42london.com    +#+  +:+       +#+        */
+/*   By: mimacdou <mimacdou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/23 17:11:56 by mimacdou          #+#    #+#             */
-/*   Updated: 2026/02/27 21:13:24 by shhidrob         ###   ########.fr       */
+/*   Updated: 2026/03/02 22:33:10 by mimacdou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,13 +51,13 @@ typedef enum e_direct
 	EAST
 }	t_dir;
 
-enum e_tex
+typedef enum e_tex
 {
 	T_NORTH = 0,
 	T_SOUTH,
 	T_WEST,
 	T_EAST
-}	t_text;
+}	t_tex;
 
 typedef struct s_player
 {
@@ -108,16 +108,26 @@ typedef	struct	s_game
 
 void	invaild_arg(char *str);
 void	f_and_c_checks(char *map);
+void	map_checks(char *map_file);
 void	actually_xpm_test(char *map);
 void	check_args(int ac, char **av);
 void	input_content_checks(char *map);
 void	extra_input_content_checks(char *map);
 void	input_content_extension_checks(char *map);
+void	invaild_rgb(int fd, char *line, int flag);
+void	additional_rgb_checks(int fd, char *line, int flag);
 
 bool	file_empty(char *file);
 bool	exists_check(char *str);
 bool	check_first_two_lines(char *texture);
 bool	texture_not_empty(char *map, int flag);
+bool	flood_matrix(char **matrix, int height);
+
+int		store_house(int flag);
+
+// FREEING/EXIT FUNCTIONS
+
+void	free_matrix(char **matrix, int height);
 
 ////////////////////////FUNCTIONS END//////////////////////////
 
