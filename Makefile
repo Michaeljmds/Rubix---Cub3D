@@ -3,16 +3,16 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: mimacdou <mimacdou@student.42.fr>          +#+  +:+       +#+         #
+#    By: shhidrob <shhidrob@student.42london.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/02/23 17:11:10 by mimacdou          #+#    #+#              #
-#    Updated: 2026/03/02 22:24:41 by mimacdou         ###   ########.fr        #
+#    Updated: 2026/03/06 22:00:11 by shhidrob         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = cub3D
 CC = cc
-FLAGS = -Wall -Wextra -Werror -I./minilibx-linux
+FLAGS = -Wall -Wextra -Werror -I./minilibx-linux -g3 -O0
 LIBFT = Libft/libft.a
 LIBMLX = minilibx-linux/libmlx.a
 
@@ -26,6 +26,11 @@ SRC = 								\
 		map_checks					\
 		extra_map_checks			\
 		janitor						\
+		src/render/test_mlx \
+		src/render/exit \
+		src/render/hooks \
+		src/render/mlx_init \
+		src/render/render \
 
 SRCS = $(addsuffix .c, $(SRC))
 OBJS = $(addsuffix .o, $(SRC))
@@ -38,14 +43,14 @@ HEADERS = cub3D.h
 all: $(NAME)
 
 $(LIBFT):
-		@$(MAKE) -C Libft FLAGS=$(FLAGS)
+		$(MAKE) -C Libft FLAGS="$(FLAGS)"
 
 $(NAME): $(LIBFT) $(OBJS) $(HEADERS)
 		$(CC) $(FLAGS) -o $(NAME) $(OBJS) $(LIBFT) \
 		-L ./minilibx-linux $(LIBMLX) -lmlx -lX11 -lXext -lm
 
 clean:
-	rm -f *.o
+	rm -f *.o src/render/*.o
 	$(MAKE) -C Libft clean
 
 fclean: clean

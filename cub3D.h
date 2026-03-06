@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3D.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mimacdou <mimacdou@student.42.fr>          +#+  +:+       +#+        */
+/*   By: shhidrob <shhidrob@student.42london.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/23 17:11:56 by mimacdou          #+#    #+#             */
-/*   Updated: 2026/03/02 22:33:10 by mimacdou         ###   ########.fr       */
+/*   Updated: 2026/03/06 22:07:14 by shhidrob         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -136,7 +136,7 @@ void	init_hooks(t_game *game);
 int 	close_window(t_game *game);
 void	init_mlx(t_game *game);
 void	render_frame(t_game *game);
-void	test_mlx(void);
+void	test_mlx(t_game *game);
 ////////////////////////FUNCTIONS END//////////////////////////
 
 #endif

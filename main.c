@@ -3,16 +3,29 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mimacdou <mimacdou@student.42.fr>          +#+  +:+       +#+        */
+/*   By: shhidrob <shhidrob@student.42london.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/23 17:38:29 by mimacdou          #+#    #+#             */
-/*   Updated: 2026/02/23 18:31:32 by mimacdou         ###   ########.fr       */
+/*   Updated: 2026/03/06 22:08:15 by shhidrob         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3D.h"
 
-int	main(int ac, char **av)
+// int	main(int ac, char **av)
+// {
+// 	check_args(ac, av);
+// }
+
+int main(int ac,char **av)
 {
-	check_args(ac, av);
+	
+	t_game game;
+
+	ft_memset(&game, 0, sizeof(t_game));
+
+	(void)ac;
+	(void)av;
+	test_mlx(&game);
+	return(0);
 }

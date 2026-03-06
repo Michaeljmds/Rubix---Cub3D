@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   render.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: shhidrob <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: shhidrob <shhidrob@student.42london.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/27 21:17:27 by shhidrob          #+#    #+#             */
-/*   Updated: 2026/02/27 21:17:35 by shhidrob         ###   ########.fr       */
+/*   Updated: 2026/03/06 21:11:38 by shhidrob         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,13 +28,13 @@ void	render_frame(t_game *game) // draw the window's image
 	);
 }
 
-void	test_mlx(void)
-{
-	t_game	game;
+// void	test_mlx(void)
+// {
+// 	t_game	game;
 
-	init_mlx(&game);
-	mlx_loop(game.mlx.mlx);
-}
+// 	init_mlx(&game);
+// 	mlx_loop(game.mlx.mlx);
+// }
 // int	main(int ac, char **av)
 // {
 // 	t_game	game;
