@@ -46,7 +46,11 @@ all: $(NAME)
 $(LIBFT):
 		$(MAKE) -C Libft FLAGS="$(FLAGS)"
 
-$(NAME): $(LIBFT) $(OBJS) $(HEADERS)
+$(LIBMLX):
+		$(MAKE) -C minilibx-linux
+
+
+$(NAME): $(LIBFT) $(LIBMLX) $(OBJS) $(HEADERS)
 		$(CC) $(FLAGS) -o $(NAME) $(OBJS) $(LIBFT) \
 		-L ./minilibx-linux $(LIBMLX) -lmlx -lX11 -lXext -lm
 
