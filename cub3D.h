@@ -6,7 +6,7 @@
 /*   By: shhidrob <shhidrob@student.42london.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/23 17:11:56 by mimacdou          #+#    #+#             */
-/*   Updated: 2026/03/06 22:07:14 by shhidrob         ###   ########.fr       */
+/*   Updated: 2026/03/06 22:21:54 by shhidrob         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -119,11 +119,14 @@ void	additional_rgb_checks(int fd, char *line, int flag);
 
 bool	file_empty(char *file);
 bool	exists_check(char *str);
+bool	flood_status(int result);
 bool	check_first_two_lines(char *texture);
 bool	texture_not_empty(char *map, int flag);
 bool	flood_matrix(char **matrix, int height);
 
 int		store_house(int flag);
+
+char	*cycle_gnl(int fd, char *to_search);
 
 // FREEING/EXIT FUNCTIONS
 

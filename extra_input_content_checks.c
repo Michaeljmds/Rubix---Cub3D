@@ -6,7 +6,7 @@
 /*   By: mimacdou <mimacdou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/24 19:30:30 by mimacdou          #+#    #+#             */
-/*   Updated: 2026/02/27 19:13:52 by mimacdou         ###   ########.fr       */
+/*   Updated: 2026/03/05 16:50:49 by mimacdou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,21 +35,21 @@ bool	texture_not_empty(char *map, int flag)
 	char	*line;
 
 	fd = open(map, O_RDWR);
-	line = get_next_line(fd);
+	line = cycle_gnl(fd, "NO");
 	if (flag == 0)
-		if (file_empty(line + 3))
+		if (file_empty(ft_strchr(line, 'M')))
 			return (free(line), close(fd), true);
-	(free(line), line = get_next_line(fd));
+	(free(line), line = cycle_gnl(fd, "SO"));
 	if (flag == 1)
-		if (file_empty(line + 3))
+		if (file_empty(ft_strchr(line, 'M')))
 			return (free(line), close(fd), true);
-	(free(line), line = get_next_line(fd));
+	(free(line), line = cycle_gnl(fd, "WE"));
 	if (flag == 2)
-		if (file_empty(line + 3))
+		if (file_empty(ft_strchr(line, 'M')))
 			return (free(line), close(fd), true);
-	(free(line), line = get_next_line(fd));
+	(free(line), line = cycle_gnl(fd, "EA"));
 	if (flag == 3)
-		if (file_empty(line + 3))
+		if (file_empty(ft_strchr(line, 'M')))
 			return (free(line), close(fd), true);
 	return (free(line), close(fd), false);
 }
@@ -80,22 +80,22 @@ void	input_content_extension_checks(char *map)
 	char	*line;
 
 	fd = open(map, O_RDWR);
-	line = get_next_line(fd);
+	line = cycle_gnl(fd, "NO");
 	coloured_write("- NO Texture Extension: ", YEL, 1);
 	if (!extension_check(line))
 		invaild_arg("NO texture has invalid extension");
 	coloured_write("Passed\n", BHGRN, 1);
-	(free(line), line = get_next_line(fd));
+	(free(line), line = cycle_gnl(fd, "SO"));
 	coloured_write("- SO Texture Extension: ", YEL, 1);
 	if (!extension_check(line))
 		invaild_arg("SO texture has invalid extension");
 	coloured_write("Passed\n", BHGRN, 1);
-	(free(line), line = get_next_line(fd));
+	(free(line), line = cycle_gnl(fd, "WE"));
 	coloured_write("- WE Texture Extension: ", YEL, 1);
 	if (!extension_check(line))
 		invaild_arg("WE texture has invalid extension");
 	coloured_write("Passed\n", BHGRN, 1);
-	(free(line), line = get_next_line(fd));
+	(free(line), line = cycle_gnl(fd, "EA"));
 	coloured_write("- EA Texture Extension: ", YEL, 1);
 	if (!extension_check(line))
 		invaild_arg("EA texture has invalid extension");
@@ -109,24 +109,24 @@ void	actually_xpm_test(char *map)
 	char	*line;
 
 	fd = open(map, O_RDWR);
-	line = get_next_line(fd);
+	line = cycle_gnl(fd, "NO");
 	coloured_write("- NO actually xpm: ", YEL, 1);
-	if (!check_first_two_lines(line + 3))
+	if (!check_first_two_lines(ft_strchr(line, 'M')))
 		(free(line), invaild_arg("NO texture is a false xpm file"));
 	(coloured_write("Passed\n", BHGRN, 1), free(line), \
-line = get_next_line(fd));
+line = cycle_gnl(fd, "SO"));
 	coloured_write("- SO actually xpm: ", YEL, 1);
-	if (!check_first_two_lines(line + 3))
+	if (!check_first_two_lines(ft_strchr(line, 'M')))
 		(free(line), invaild_arg("SO texture is a false xpm file"));
 	(coloured_write("Passed\n", BHGRN, 1), free(line), \
-line = get_next_line(fd));
+line = cycle_gnl(fd, "WE"));
 	coloured_write("- WE actually xpm: ", YEL, 1);
-	if (!check_first_two_lines(line + 3))
+	if (!check_first_two_lines(ft_strchr(line, 'M')))
 		(free(line), invaild_arg("WE texture is a false xpm file"));
 	(coloured_write("Passed\n", BHGRN, 1), free(line), \
-line = get_next_line(fd));
+line = cycle_gnl(fd, "EA"));
 	coloured_write("- EA actually xpm: ", YEL, 1);
-	if (!check_first_two_lines(line + 3))
+	if (!check_first_two_lines(ft_strchr(line, 'M')))
 		(free(line), invaild_arg("EA texture is a false xpm file"));
 	(coloured_write("Passed\n", BHGRN, 1), free(line), close(fd));
 }

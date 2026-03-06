@@ -6,7 +6,7 @@
 /*   By: mimacdou <mimacdou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/24 20:10:02 by mimacdou          #+#    #+#             */
-/*   Updated: 2026/02/27 18:56:43 by mimacdou         ###   ########.fr       */
+/*   Updated: 2026/03/03 16:21:14 by mimacdou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,23 +88,22 @@ static void	c_f_rgb_checks(int fd, char *line, int flag)
 
 void	f_and_c_checks(char *map)
 {
-	int		i;
 	int		fd;
 	char	*line;
 
-	i = 0;
 	fd = open(map, O_RDWR);
 	line = get_next_line(fd);
-	while (i++ != 5)
+	while (!ft_strchr(line, 'F') && line)
 		(free(line), line = get_next_line(fd));
 	coloured_write("- Floor identifier present: ", YEL, 1);
-	if (!line || line[0] != 'F')
+	if (!line)
 		invaild_arg("Floor identifier missing");
 	coloured_write("Passed\n", BHGRN, 1);
 	c_f_rgb_checks(fd, line, 0);
-	(free(line), line = get_next_line(fd));
+	while (!ft_strchr(line, 'C') && line)
+		(free(line), line = get_next_line(fd));
 	coloured_write("- Ceiling identifier present: ", YEL, 1);
-	if (!line || line[0] != 'C')
+	if (!line)
 		invaild_arg("Ceiling identifier missing");
 	coloured_write("Passed\n", BHGRN, 1);
 	c_f_rgb_checks(fd, line, 1);

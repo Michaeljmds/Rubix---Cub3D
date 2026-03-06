@@ -6,7 +6,7 @@
 #    By: shhidrob <shhidrob@student.42london.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/02/23 17:11:10 by mimacdou          #+#    #+#              #
-#    Updated: 2026/03/06 22:00:11 by shhidrob         ###   ########.fr        #
+#    Updated: 2026/03/06 22:22:34 by shhidrob         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,6 +25,7 @@ SRC = 								\
 		additional_rgb_checks		\
 		map_checks					\
 		extra_map_checks			\
+		check_utils					\
 		janitor						\
 		src/render/test_mlx \
 		src/render/exit \

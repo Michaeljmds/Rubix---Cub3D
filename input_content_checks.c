@@ -6,7 +6,7 @@
 /*   By: mimacdou <mimacdou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/23 20:42:23 by mimacdou          #+#    #+#             */
-/*   Updated: 2026/02/27 19:11:36 by mimacdou         ###   ########.fr       */
+/*   Updated: 2026/03/05 16:39:33 by mimacdou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,23 +16,22 @@ static bool	texture_checks_two(char *map, int flag)
 {
 	int		fd;
 	char	*line;
-	int		i;
+	char	*d_line;
 
-	i = 0;
 	fd = open(map, O_RDWR);
-	line = get_next_line(fd);
-	while (i <= 1)
-		(free(line), line = get_next_line(fd), i++);
+	line = cycle_gnl(fd, "WE");
 	if (!line)
 		return (close(fd), false);
+	d_line = ft_strchr(line, 'W');
 	if (flag == 2)
-		if (line[0] == 'W' && line[1] == 'E')
+		if (d_line[0] == 'W' && d_line[1] == 'E')
 			return (free(line), close(fd), true);
-	(free(line), line = get_next_line(fd));
+	(free(line), line = cycle_gnl(fd, "EA"));
 	if (!line)
 		return (close(fd), false);
+	d_line = ft_strchr(line, 'E');
 	if (flag == 3)
-		if (line[0] == 'E' && line[1] == 'A')
+		if (d_line[0] == 'E' && d_line[1] == 'A')
 			return (free(line), close(fd), true);
 	return (free(line), close(fd), false);
 }
@@ -41,19 +40,22 @@ static bool	texture_checks(char *map, int flag)
 {
 	int		fd;
 	char	*line;
+	char	*d_line;
 
 	fd = open(map, O_RDWR);
-	line = get_next_line(fd);
+	line = cycle_gnl(fd, "NO");
 	if (!line)
 		return (close(fd), false);
+	d_line = ft_strchr(line, 'N');
 	if (flag == 0)
-		if (line[0] == 'N' && line[1] == 'O')
+		if (d_line[0] == 'N' && d_line[1] == 'O')
 			return (free(line), close(fd), true);
-	(free(line), line = get_next_line(fd));
+	(free(line), line = cycle_gnl(fd, "SO"));
 	if (!line)
 		return (close(fd), false);
+	d_line = ft_strchr(line, 'S');
 	if (flag == 1)
-		if (line[0] == 'S' && line[1] == 'O')
+		if (d_line[0] == 'S' && d_line[1] == 'O')
 			return (free(line), close(fd), true);
 	return (free(line), close(fd), false);
 }
@@ -64,21 +66,21 @@ static bool	texture_exist(char *map, int flag)
 	char	*line;
 
 	fd = open(map, O_RDWR);
-	line = get_next_line(fd);
+	line = cycle_gnl(fd, "NO");
 	if (flag == 0)
-		if (exists_check(line + 3))
+		if (exists_check(ft_strchr(line, 'M')))
 			return (free(line), close(fd), true);
-	(free(line), line = get_next_line(fd));
+	(free(line), line = cycle_gnl(fd, "SO"));
 	if (flag == 1)
-		if (exists_check(line + 3))
+		if (exists_check(ft_strchr(line, 'M')))
 			return (free(line), close(fd), true);
-	(free(line), line = get_next_line(fd));
+	(free(line), line = cycle_gnl(fd, "WE"));
 	if (flag == 2)
-		if (exists_check(line + 3))
+		if (exists_check(ft_strchr(line, 'M')))
 			return (free(line), close(fd), true);
-	(free(line), line = get_next_line(fd));
+	(free(line), line = cycle_gnl(fd, "EA"));
 	if (flag == 3)
-		if (exists_check(line + 3))
+		if (exists_check(ft_strchr(line, 'M')))
 			return (free(line), close(fd), true);
 	return (free(line), close(fd), false);
 }
