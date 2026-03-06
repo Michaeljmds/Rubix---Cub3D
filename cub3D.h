@@ -129,6 +129,14 @@ int		store_house(int flag);
 
 void	free_matrix(char **matrix, int height);
 
+// RENDER FUNCTIONS
+
+int		key_press(int keycode, t_game *game);
+void	init_hooks(t_game *game);
+int 	close_window(t_game *game);
+void	init_mlx(t_game *game);
+void	render_frame(t_game *game);
+void	test_mlx(void);
 ////////////////////////FUNCTIONS END//////////////////////////
 
 #endif

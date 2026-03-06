@@ -10,15 +10,22 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../cub3D.h"
+#include "../../../cub3D.h"
 
 /*
 ** Handles keyboard input and updates the game state.
 */
 
-int key_press(int keycode, t_game *game)
+int key_press(int keycode, t_game *game) //when using ESC
 {
-	(void)keycode;
-	(void)game;
+	if(keycode == KEY_ESC)
+		close_window(game);
 	return(0);
 }
+
+void	init_hooks(t_game *game)
+{
+	mlx_hook(game->mlx.win, 17, 0, close_window, game); //17=DestroyNotify event so MLX calls this function each time typing in the keyboard - in this case when pressing X
+	mlx_key_hook(game->mlx.win, key_press, game);//call to key_press when typing in the keyboard
+}
+
