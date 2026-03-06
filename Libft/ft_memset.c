@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memset.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mimacdou <mimacdou@student.42.fr>          +#+  +:+       +#+        */
+/*   By: shhidrob <shhidrob@student.42london.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/28 17:22:21 by mimacdou          #+#    #+#             */
-/*   Updated: 2025/01/13 18:48:13 by mimacdou         ###   ########.fr       */
+/*   Updated: 2026/03/06 23:04:00 by shhidrob         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,10 @@
 void	*ft_memset(void *s, int c, size_t n)
 {
 	unsigned char	bb;
-	int				i;
 
 	if (!s)
 		return (NULL);
 	bb = (unsigned char) c;
-	i = 0;
 	while (n--)
 		*(unsigned char *)s++ = bb;
 	return (s);
@@ -42,7 +40,7 @@ void	*ft_memset(void *s, int c, size_t n)
 // 	return (s);
 // }
 
-// int	main()
+// int	main()git bra
 // {
 // 	char	ptr[] = "Hello me banana";
 // 	ptr[15] = '\0';

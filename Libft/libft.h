@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mimacdou <mimacdou@student.42.fr>          +#+  +:+       +#+        */
+/*   By: shhidrob <shhidrob@student.42london.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/23 17:35:02 by mimacdou          #+#    #+#             */
-/*   Updated: 2026/02/24 17:36:52 by mimacdou         ###   ########.fr       */
+/*   Updated: 2026/03/06 23:05:09 by shhidrob         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@
 # include <limits.h>
 # include <stdint.h>
 # include <fcntl.h>
+# include <stdarg.h>
 # include <signal.h>
 # include <sys/types.h>
 # include <stdbool.h>
