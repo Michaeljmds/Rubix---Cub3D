@@ -6,12 +6,12 @@
 #    By: mimacdou <mimacdou@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/02/23 17:11:10 by mimacdou          #+#    #+#              #
-#    Updated: 2026/03/02 22:24:41 by mimacdou         ###   ########.fr        #
+#    Updated: 2026/03/03 18:20:45 by mimacdou         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = cub3D
-CC = cc
+CC = cc -g3
 FLAGS = -Wall -Wextra -Werror -I./minilibx-linux
 LIBFT = Libft/libft.a
 LIBMLX = minilibx-linux/libmlx.a
@@ -25,6 +25,7 @@ SRC = 								\
 		additional_rgb_checks		\
 		map_checks					\
 		extra_map_checks			\
+		check_utils					\
 		janitor						\
 
 SRCS = $(addsuffix .c, $(SRC))

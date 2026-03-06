@@ -6,7 +6,7 @@
 /*   By: mimacdou <mimacdou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/27 15:36:23 by mimacdou          #+#    #+#             */
-/*   Updated: 2026/02/27 21:24:01 by mimacdou         ###   ########.fr       */
+/*   Updated: 2026/03/03 16:20:13 by mimacdou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,18 +81,25 @@ static void	zeros_check(int fd, char *line, int flag, char **octect)
 void	additional_rgb_checks(int fd, char *line, int flag)
 {
 	char	**octect;
+	char	*id_pos;
 	int		num;
 	int		i;
 
-	octect = ft_split(line + 2, ',');
+	if (flag == 0)
+		id_pos = ft_strchr(line, 'F');
+	else
+		id_pos = ft_strchr(line, 'C');
+	octect = ft_split(id_pos + 1, ',');
 	i = 0;
 	num = 0;
 	while (i <= 2)
 	{
+		if (!octect && i == 0)
+			(free(octect), invaild_rgb(fd, line, flag));
+		if (!octect[i])
+			(free_matrix(octect, 3), invaild_rgb(fd, line, flag));
 		num = atoi(octect[i]);
 		if (num > 255 || num < 0)
-			(free_matrix(octect, 3), invaild_rgb(fd, line, flag));
-		if (i == 2 && ft_strlen(octect[i]) > 3)
 			(free_matrix(octect, 3), invaild_rgb(fd, line, flag));
 		i++;
 	}
