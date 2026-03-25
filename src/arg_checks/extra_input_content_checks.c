@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   extra_input_content_checks.c                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mimacdou <mimacdou@student.42.fr>          +#+  +:+       +#+        */
+/*   By: moik <moik@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/24 19:30:30 by mimacdou          #+#    #+#             */
-/*   Updated: 2026/03/05 16:50:49 by mimacdou         ###   ########.fr       */
+/*   Updated: 2026/03/25 18:45:55 by moik             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3D.h"
+#include "../../cub3D.h"
 
 static bool	extension_check(char *str)
 {

@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ex_ex_input_content_checks.c                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mimacdou <mimacdou@student.42.fr>          +#+  +:+       +#+        */
+/*   By: moik <moik@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/24 20:10:02 by mimacdou          #+#    #+#             */
-/*   Updated: 2026/03/03 16:21:14 by mimacdou         ###   ########.fr       */
+/*   Updated: 2026/03/25 18:45:47 by moik             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3D.h"
+#include "../../cub3D.h"
 
 void	invaild_rgb(int fd, char *line, int flag)
 {

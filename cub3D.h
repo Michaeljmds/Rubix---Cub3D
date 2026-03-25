@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3D.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: shhidrob <shhidrob@student.42london.com    +#+  +:+       +#+        */
+/*   By: moik <moik@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/23 17:11:56 by mimacdou          #+#    #+#             */
-/*   Updated: 2026/03/06 22:21:54 by shhidrob         ###   ########.fr       */
+/*   Updated: 2026/03/25 18:55:11 by moik             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,6 +106,8 @@ typedef	struct	s_game
 
 //////////////////////////FUNCTIONS////////////////////////////
 
+// ARG_CHECKS FUNCTIONS
+
 void	invaild_arg(char *str);
 void	f_and_c_checks(char *map);
 void	map_checks(char *map_file);
@@ -127,6 +129,10 @@ bool	flood_matrix(char **matrix, int height);
 int		store_house(int flag);
 
 char	*cycle_gnl(int fd, char *to_search);
+
+// PARSING FUNCTIONS
+
+void	parser(t_game *game, char *map_file);
 
 // FREEING/EXIT FUNCTIONS
 

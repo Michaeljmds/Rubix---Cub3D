@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   check_args.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mimacdou <mimacdou@student.42.fr>          +#+  +:+       +#+        */
+/*   By: moik <moik@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/23 18:30:06 by mimacdou          #+#    #+#             */
-/*   Updated: 2026/02/24 21:50:50 by mimacdou         ###   ########.fr       */
+/*   Updated: 2026/03/25 18:45:30 by moik             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3D.h"
+#include "../../cub3D.h"
 
 void	print_extras(int flag)
 {

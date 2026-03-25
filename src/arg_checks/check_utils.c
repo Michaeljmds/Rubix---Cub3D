@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   check_utils.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mimacdou <mimacdou@student.42.fr>          +#+  +:+       +#+        */
+/*   By: moik <moik@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/03 18:15:21 by mimacdou          #+#    #+#             */
-/*   Updated: 2026/03/06 22:16:23 by mimacdou         ###   ########.fr       */
+/*   Updated: 2026/03/25 18:45:37 by moik             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3D.h"
+#include "../../cub3D.h"
 
 char	*cycle_gnl(int fd, char *to_search)
 {

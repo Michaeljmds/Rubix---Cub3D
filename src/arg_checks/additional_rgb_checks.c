@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   additional_rgb_checks.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mimacdou <mimacdou@student.42.fr>          +#+  +:+       +#+        */
+/*   By: moik <moik@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/27 15:36:23 by mimacdou          #+#    #+#             */
-/*   Updated: 2026/03/03 16:20:13 by mimacdou         ###   ########.fr       */
+/*   Updated: 2026/03/25 18:45:24 by moik             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3D.h"
+#include "../../cub3D.h"
 
 bool	file_empty(char *file)
 {

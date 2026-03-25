@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   input_content_checks.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mimacdou <mimacdou@student.42.fr>          +#+  +:+       +#+        */
+/*   By: moik <moik@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/23 20:42:23 by mimacdou          #+#    #+#             */
-/*   Updated: 2026/03/05 16:39:33 by mimacdou         ###   ########.fr       */
+/*   Updated: 2026/03/25 18:46:11 by moik             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3D.h"
+#include "../../cub3D.h"
 
 static bool	texture_checks_two(char *map, int flag)
 {

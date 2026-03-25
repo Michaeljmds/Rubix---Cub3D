@@ -6,7 +6,7 @@
 #    By: moik <moik@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/02/23 17:11:10 by mimacdou          #+#    #+#              #
-#    Updated: 2026/03/25 18:33:31 by moik             ###   ########.fr        #
+#    Updated: 2026/03/25 19:40:16 by moik             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,6 +28,7 @@ SRC = \
 		src/arg_checks/map_checks \
 		src/arg_checks/extra_map_checks	\
 		src/arg_checks/check_utils \
+		src/parsing/first \
 		janitor	\
 		src/render/test_mlx \
 		src/render/exit \
@@ -59,7 +60,7 @@ $(NAME): $(LIBFT) $(MLX) $(OBJS)
 		$(CC) $(FLAGS) $(OBJS) $(LIBFT) $(MLX) $(FRAMEWORKS) -o $(NAME)
 
 clean:
-	rm -f *.o src/render/*.o
+	rm -f *.o src/*/*.o
 	$(MAKE) -C Libft clean
 
 fclean: clean

@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   extra_map_checks.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mimacdou <mimacdou@student.42.fr>          +#+  +:+       +#+        */
+/*   By: moik <moik@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/27 20:37:56 by mimacdou          #+#    #+#             */
-/*   Updated: 2026/03/06 22:16:16 by mimacdou         ###   ########.fr       */
+/*   Updated: 2026/03/25 18:46:02 by moik             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3D.h"
+#include "../../cub3D.h"
 
 int	get_player_coords(char **matrix, int height, int flag)
 {
