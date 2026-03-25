@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: shhidrob <shhidrob@student.42london.com    +#+  +:+       +#+         #
+#    By: moik <moik@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/02/23 17:11:10 by mimacdou          #+#    #+#              #
-#    Updated: 2026/03/06 22:22:34 by shhidrob         ###   ########.fr        #
+#    Updated: 2026/03/25 18:33:31 by moik             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,19 +14,21 @@ NAME = cub3D
 CC = cc
 FLAGS = -Wall -Wextra -Werror -I./minilibx-linux -g3 -O0
 LIBFT = Libft/libft.a
-LIBMLX = minilibx-linux/libmlx.a
-
-SRC = 								\
-		main						\
-		check_args					\
-		input_content_checks		\
-		extra_input_content_checks	\
-		ex_ex_input_content_checks	\
-		additional_rgb_checks		\
-		map_checks					\
-		extra_map_checks			\
-		check_utils					\
-		janitor						\
+FRAMEWORKS = -lXext -lX11 -lm
+#FRAMEWORKS = -L ./minilibx -lmlx -lmlx_Linux -L/usr/lib/X11 -LXext -LX11 -lm
+MLX_PATH = ./minilibx-linux
+MLX = $(MLX_PATH)/libmlx.a
+SRC = \
+		main \
+		src/arg_checks/check_args \
+		src/arg_checks/input_content_checks	\
+		src/arg_checks/extra_input_content_checks \
+		src/arg_checks/ex_ex_input_content_checks \
+		src/arg_checks/additional_rgb_checks \
+		src/arg_checks/map_checks \
+		src/arg_checks/extra_map_checks	\
+		src/arg_checks/check_utils \
+		janitor	\
 		src/render/test_mlx \
 		src/render/exit \
 		src/render/hooks \
@@ -46,13 +48,15 @@ all: $(NAME)
 $(LIBFT):
 		$(MAKE) -C Libft FLAGS="$(FLAGS)"
 
-$(LIBMLX):
+$(MLX):
 		$(MAKE) -C minilibx-linux
 
+#$(NAME): $(LIBFT) $(OBJS) $(HEADERS)
+#		$(CC) $(FLAGS) -o $(NAME) $(OBJS) $(LIBFT)
+#		-L $(MLX) $(FRAMEWORKS)
 
-$(NAME): $(LIBFT) $(LIBMLX) $(OBJS) $(HEADERS)
-		$(CC) $(FLAGS) -o $(NAME) $(OBJS) $(LIBFT) \
-		-L ./minilibx-linux $(LIBMLX) -lmlx -lX11 -lXext -lm
+$(NAME): $(LIBFT) $(MLX) $(OBJS)
+		$(CC) $(FLAGS) $(OBJS) $(LIBFT) $(MLX) $(FRAMEWORKS) -o $(NAME)
 
 clean:
 	rm -f *.o src/render/*.o
