@@ -6,7 +6,7 @@
 /*   By: moik <moik@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/23 17:11:56 by mimacdou          #+#    #+#             */
-/*   Updated: 2026/03/25 18:55:11 by moik             ###   ########.fr       */
+/*   Updated: 2026/03/26 19:10:08 by moik             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,8 +98,8 @@ typedef	struct	s_game
 	t_player	player;// player state (position + direction)
 	t_texture	textures[4];//wall textures NO,SO,WE,EA - orden tbc with parsing - indexed by t_tex enum - floor & ceiling are not textures - they're colours(int)
 	char	**map;//parsed map, each char represents a tile e.g. map[y][x] == '1' = the wall
-	int		floor_color;//color RGB converted to an int,parsing fills it and render uses it (same for ceiling)
-	int		ceiling_color;
+	char	**floor_color;//color RGB converted to an int,parsing fills it and render uses it (same for ceiling)
+	char	**ceiling_color; // changed to char ** so we can store the individual rgb numbers from ft_split
 }	t_game;
 
 /////////////////////////STRUCTS END///////////////////////////
@@ -129,6 +129,7 @@ bool	flood_matrix(char **matrix, int height);
 int		store_house(int flag);
 
 char	*cycle_gnl(int fd, char *to_search);
+char	**make_floodfill_matrix(int fd, char *line, char *map_file);
 
 // PARSING FUNCTIONS
 

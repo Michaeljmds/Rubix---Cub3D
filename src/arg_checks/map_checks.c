@@ -6,7 +6,7 @@
 /*   By: moik <moik@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/27 17:14:16 by mimacdou          #+#    #+#             */
-/*   Updated: 2026/03/25 18:46:18 by moik             ###   ########.fr       */
+/*   Updated: 2026/03/26 19:15:53 by moik             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ char	**make_floodfill_matrix(int fd, char *line, char *map_file)
 	line = get_next_line(fd_two);
 	while (line && !ft_strchr(line, 'C'))
 		(free(line), line = get_next_line(fd_two));
-	(free(line), line = get_next_line(fd_two), free(line), line = cycle_gnl(fd_two, "1"));
+	(free(line), line = cycle_gnl(fd_two, "1"));
 	store_house(tall_y);
 	i = 0;
 	while (i < tall_y)
