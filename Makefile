@@ -6,7 +6,7 @@
 #    By: moik <moik@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/02/23 17:11:10 by mimacdou          #+#    #+#              #
-#    Updated: 2026/03/26 19:14:28 by moik             ###   ########.fr        #
+#    Updated: 2026/03/26 19:45:50 by moik             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,13 +28,13 @@ SRC = \
 		src/arg_checks/map_checks \
 		src/arg_checks/extra_map_checks	\
 		src/arg_checks/check_utils \
-		janitor	\
+		src/parsing/first \
 		src/render/test_mlx \
 		src/render/exit \
 		src/render/hooks \
 		src/render/mlx_init \
 		src/render/render \
-		src/parsing/first \
+		src/clean_up/janitor \
 
 SRCS = $(addsuffix .c, $(SRC))
 OBJS = $(addsuffix .o, $(SRC))

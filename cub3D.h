@@ -6,7 +6,7 @@
 /*   By: moik <moik@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/23 17:11:56 by mimacdou          #+#    #+#             */
-/*   Updated: 2026/03/26 19:10:08 by moik             ###   ########.fr       */
+/*   Updated: 2026/03/26 19:54:11 by moik             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -137,6 +137,7 @@ void	parser(t_game *game, char *map_file);
 
 // FREEING/EXIT FUNCTIONS
 
+void	free_game(t_game *game);
 void	free_matrix(char **matrix, int height);
 
 // RENDER FUNCTIONS
