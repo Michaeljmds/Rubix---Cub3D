@@ -6,7 +6,7 @@
 /*   By: moik <moik@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/25 18:51:17 by moik              #+#    #+#             */
-/*   Updated: 2026/03/28 19:02:05 by moik             ###   ########.fr       */
+/*   Updated: 2026/03/28 19:03:52 by moik             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,6 @@ void    parser(t_game *game, char *map_file)
 	int			fd;
 	char		*line;
 
-	game->mlx.mlx = mlx_init();
 	fd = open(map_file, O_RDWR);
 	(line = cycle_gnl(fd, "NO"), init_texture(game, T_NORTH, line));
 	(free(line), line = cycle_gnl(fd, "SO"), init_texture(game, T_SOUTH, line));
