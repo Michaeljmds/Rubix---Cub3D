@@ -6,7 +6,7 @@
 /*   By: moik <moik@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/25 18:51:17 by moik              #+#    #+#             */
-/*   Updated: 2026/03/28 19:03:52 by moik             ###   ########.fr       */
+/*   Updated: 2026/03/28 20:57:47 by moik             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	init_texture(t_game *game, enum e_tex flag, char *line)
 
 	tmp = &game->textures[flag];
 	tmp->addr = ft_strdup(ft_strchr(line, 'M'));
-	tmp->img = mlx_xpm_file_to_image(game->mlx.mlx, tmp->addr, (int *)64, (int *)64); //setting height/width to 64 for time being
+	//tmp->img = mlx_xpm_file_to_image(game->mlx.mlx, tmp->addr, (int *)64, (int *)64); for future, width/height are just placeholders for now
 }
 
 // WIP
