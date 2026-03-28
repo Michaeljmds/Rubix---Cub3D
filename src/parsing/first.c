@@ -6,7 +6,7 @@
 /*   By: moik <moik@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/25 18:51:17 by moik              #+#    #+#             */
-/*   Updated: 2026/03/28 18:45:51 by moik             ###   ########.fr       */
+/*   Updated: 2026/03/28 19:02:05 by moik             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,8 @@ void	init_texture(t_game *game, enum e_tex flag, char *line)
 	t_texture	*tmp;
 
 	tmp = &game->textures[flag];
-	tmp->addr = ft_strdup(ft_strchr(line, "M"));
-	tmp->img = mlx_xpm_file_to_image(game->mlx.mlx, tmp->addr, 64, 64); //setting height/width to 64 for time being
+	tmp->addr = ft_strdup(ft_strchr(line, 'M'));
+	tmp->img = mlx_xpm_file_to_image(game->mlx.mlx, tmp->addr, (int *)64, (int *)64); //setting height/width to 64 for time being
 }
 
 // WIP
@@ -26,7 +26,6 @@ void    parser(t_game *game, char *map_file)
 {
 	int			fd;
 	char		*line;
-	t_texture	*tmp;
 
 	game->mlx.mlx = mlx_init();
 	fd = open(map_file, O_RDWR);
