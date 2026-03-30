@@ -6,7 +6,7 @@
 /*   By: moik <moik@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/23 17:11:56 by mimacdou          #+#    #+#             */
-/*   Updated: 2026/03/26 19:54:11 by moik             ###   ########.fr       */
+/*   Updated: 2026/03/30 20:37:37 by moik             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ typedef enum e_direct
 	SOUTH,
 	WEST,
 	EAST
-}	t_dir;
+}	t_dir; // not sure where to use this? - Michael
 
 typedef enum e_tex
 {
@@ -67,6 +67,7 @@ typedef struct s_player
 	double dir_y;
 	double plane_x;//represents the camera's view plan, defines FOV (campo de vision) e.g. dir_x = -1; dir_y = 0;plane_x = 0; plane_y = 0.66; 0.66 = FOV of 66"
 	double plane_y; //used for calculate each camera window laser direction & generate 3D efect
+	char	starting_direction; // added by Michael
 }	t_player;
 
 
@@ -99,7 +100,7 @@ typedef	struct	s_game
 	t_texture	textures[4];//wall textures NO,SO,WE,EA - orden tbc with parsing - indexed by t_tex enum - floor & ceiling are not textures - they're colours(int)
 	char	**map;//parsed map, each char represents a tile e.g. map[y][x] == '1' = the wall
 	char	**floor_color;//color RGB converted to an int,parsing fills it and render uses it (same for ceiling)
-	char	**ceiling_color; // changed to char ** so we can store the individual rgb numbers from ft_split
+	char	**ceiling_color; //Done by Michael, changed to char ** so we can store the individual rgb numbers from ft_split
 }	t_game;
 
 /////////////////////////STRUCTS END///////////////////////////

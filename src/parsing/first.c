@@ -6,11 +6,34 @@
 /*   By: moik <moik@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/25 18:51:17 by moik              #+#    #+#             */
-/*   Updated: 2026/03/28 20:57:47 by moik             ###   ########.fr       */
+/*   Updated: 2026/03/30 20:37:06 by moik             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../cub3D.h"
+
+char	get_starting_direction(char **map)
+{
+	int	i;
+	int	h;
+	int	mh;
+
+	i = 0;
+	h = 1;
+	mh = store_house(999);
+	while (h < mh)
+	{
+		while (map[h][i])
+		{
+			if (map[h][i] == 'N' || map[h][i] == 'S' || map[h][i] == 'W' || map[h][i] == 'S')
+				return (map[h][i]);
+			i++;
+		}
+		i = 0;
+		h++;
+	}
+	return ('i');
+}
 
 void	init_texture(t_game *game, enum e_tex flag, char *line)
 {
@@ -38,4 +61,5 @@ void    parser(t_game *game, char *map_file)
 	game->ceiling_color = ft_split(ft_strchr(line, 'C') + 1, ',');
 	(free(line), line = cycle_gnl(fd, "1"));
 	game->map = make_floodfill_matrix(fd, line, map_file);
+	game->player.starting_direction = get_starting_direction(game->map);
 }
